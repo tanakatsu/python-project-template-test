@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "20211226-python-project-template"
+version = "0.1.0"
+description = ""
+authors = ["Tsuyoshi Tanaka <tanakatsu1080@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+python-dotenv = {extras = ["cli"], version = "^0.19.2"}
+typing-extensions = "^4.0.1"
+
+[tool.poetry.dev-dependencies]
+pysen = {version = "0.9.1", extras = ["lint"]}
+pytest = "^6.2.5"
+pytest-mock = "^3.6.1"
+pytest-sugar = "^0.9.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pysen]
+version = "0.9"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = false
+mypy_preset = "strict"
+line_length = 88
+py_version = "py37"
+
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["."]
+
+[tool.pysen.lint.source]
+  excludes = [".venv/"]
